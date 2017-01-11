@@ -12,8 +12,6 @@ zplug 'zsh-users/zsh-syntax-highlighting', defer:2
 zplug 'zsh-users/zsh-history-substring-search'
 zplug 'mollifier/anyframe'
 
-TERM='xterm-256color'
-POWERLEVEL9K_MODE='awesome-patched'
 zplug 'bhilburn/powerlevel9k', use:powerlevel9k.zsh-theme, defer:2
 
 if ! zplug check --verbose; then

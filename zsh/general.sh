@@ -60,11 +60,6 @@ zstyle ':completion:*:descriptions' format '%F{yellow}-- %d --%f'
 zstyle ':completion:*:options' description 'yes'
 
 #
-# Path
-#
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:$PATH"
-
-#
 # Others
 #
 eval "$(direnv hook zsh)"
