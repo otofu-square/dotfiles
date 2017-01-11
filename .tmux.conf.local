@@ -53,7 +53,7 @@ tmux_conf_theme_highlight_focused_pane=false
 
 # focused pane colours:
 tmux_conf_theme_focused_pane_fg='default'
-tmux_conf_theme_focused_pane_bg='#504945'               # light blue
+tmux_conf_theme_focused_pane_bg='#000000'               # light blue
 
 # pane border style, possible values are:
 #   - thin (default)
@@ -62,11 +62,11 @@ tmux_conf_theme_pane_border_style=thin
 
 # pane borders colours:
 tmux_conf_theme_pane_border='#444444'                   # gray
-tmux_conf_theme_pane_active_border='#689d6a'            # light blue
+tmux_conf_theme_pane_active_border='#00afff'            # light blue
 
 # pane indicator colours
-tmux_conf_theme_pane_indicator='#689d6a'                # light blue
-tmux_conf_theme_pane_active_indicator='#689d6a'         # light blue
+tmux_conf_theme_pane_indicator='#00afff'                # light blue
+tmux_conf_theme_pane_active_indicator='#00afff'         # light blue
 
 # status line style
 tmux_conf_theme_message_fg='#282828'                    # black
@@ -243,4 +243,12 @@ set -g mode-keys vi
 # move status line to top
 set -g status-position top
 
-unbind C-a
+bind -n WheelUpPane if-shell -F -t = "#{mouse_any_flag}" "send-keys -M" "if -Ft= '#{pane_in_mode}' 'send-keys -M' 'select-pane -t=; copy-mode -e; send-keys -M'"
+bind -n WheelDownPane select-pane -t= \; send-keys -M
+bind-key -t vi-copy Enter copy-pipe "reattach-to-user-namespace pbcopy"
+
+# マウスモード有効
+set-option -g mouse on
+
+bind -n C-v copy-mode
+unbind C-f
