@@ -243,12 +243,16 @@ set -g mode-keys vi
 # move status line to top
 set -g status-position top
 
+# set mouse mode
+set-option -g mouse on
+
+# unbind-key
+unbind C-a
+unbind C-f
+
+# bind-key
 bind -n WheelUpPane if-shell -F -t = "#{mouse_any_flag}" "send-keys -M" "if -Ft= '#{pane_in_mode}' 'send-keys -M' 'select-pane -t=; copy-mode -e; send-keys -M'"
 bind -n WheelDownPane select-pane -t= \; send-keys -M
 bind-key -t vi-copy Enter copy-pipe "reattach-to-user-namespace pbcopy"
 
-# マウスモード有効
-set-option -g mouse on
-
 bind -n C-v copy-mode
-unbind C-f
