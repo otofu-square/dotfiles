@@ -97,6 +97,28 @@ zle -N peco-select-gitadd
 bindkey "^g^a" peco-select-gitadd
 
 # --------------------------------------
+# peco-path
+# ref: http://blog.hotolab.net/entry/peco_select_path
+# --------------------------------------
+function peco-path() {
+  local filepath="$(find . | grep -v '/\.' | peco --prompt 'PATH>')"
+  [ -z "$filepath" ] && return
+  if [ -n "$LBUFFER" ]; then
+    BUFFER="$LBUFFER$filepath"
+  else
+    if [ -d "$filepath" ]; then
+      BUFFER="cd $filepath"
+    elif [ -f "$filepath" ]; then
+      BUFFER="$EDITOR $filepath"
+    fi
+  fi
+  CURSOR=$#BUFFER
+}
+
+zle -N peco-path
+bindkey '^d' peco-path # Ctrl+3
+
+# --------------------------------------
 # edit command
 # --------------------------------------
 autoload -Uz edit-command-line
