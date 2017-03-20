@@ -1,0 +1,55 @@
+[user]
+	name = otofu-square
+	email = [FILL_IN]
+[core]
+	editor = vim
+	excludesfile = ~/.gitignore_global
+[color]
+  ui = auto
+  status = auto
+  diff = auto
+  branch = auto
+  interactive = auto
+  grep = auto
+[diff]
+  patience = true
+  log = diff-highlight | less
+  show = diff-highlight | less
+  diff = diff-highlight | less
+[help]
+  autocorrect = 0
+[alias]
+  co = checkout
+  cm = commit
+  ps = push
+  ft = fetch
+  br = branch
+  brc = "!f () { git branch --merged|egrep -v '\\*|develop|master'|xargs git branch -d; };f"
+  delete-merged-branch = "!f () { git checkout $1; git branch --merged|egrep -v '\\*|develop|master'|xargs git branch -d; };f"
+  dif = diff
+  ce = commit -v --amend
+  st = status --branch --short
+  si = status --ignored --short
+	stpeco = "!f () { git st | grep -v '##' | awk '{print $2}' | peco; };f"
+	vspec = "!f () { git st | grep 'spec' | awk '{print $2}' | peco | xargs vagrant ssh -- rspec; };f"
+	strubocop = "!f () { git stpeco | xargs rubocop -a; };f"
+  branches = branch -a
+  remotes = remote -v
+  tags = tag -l
+	ls = log --oneline --color -n 10
+  la = log --oneline --decorate --color -n 10
+  ll = log --decorate --color -n 7
+  lg = log --graph --all --decorate --abbrev-commit --branches --date=short --pretty=format:\"%C(red)%h%C(reset) %C(green)[%ad]%C(reset) %s %C(cyan)@%an%C(reset) %C(yellow)%d%C(reset)\"
+  fp = fetch --prune
+  dh = diff --histogram
+  dw = diff --word-diff
+  dc = diff --cached
+  wc = whatchanged
+  tree = log --graph --pretty='format:%C(yellow)%h%Creset %s %Cgreen(%an)%Creset %Cred%d%Creset'
+  ignore = update-index --assume-unchanged
+  unignore = update-index --no-assume-unchanged
+  ignored = !git ls-files -v | grep "^[a-z]"
+  addselect = "!f () { git st | sed -e \"/M  /d\" | awk '{print $2}' | sed -e '1d' | peco | xargs git add; };f"
+	see = !hub browse
+	sepr = !hub browse -- pull/$(git symbolic-ref --short HEAD)
+	pr = "!hub browse -- compare/$(git symbolic-ref --short HEAD)"
