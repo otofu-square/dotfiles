@@ -1,0 +1,87 @@
+'atom-workspace atom-text-editor':
+  'H': 'unset!'
+  'L': 'unset!'
+
+'atom-workspace':
+  'ctrl-cmd-o': 'advanced-open-file:toggle'
+
+# Tree-view navigation
+# -------------------------
+'.tree-view':
+  '-': 'choose-pane:start'
+  # 'm m': 'choose-pane:focus-last-focused'
+  'g g': 'core:move-to-top'
+  'shift-g': 'core:move-to-bottom'
+  'ctrl-h': 'focus-pane-or-panel:focus-on-left'
+  'ctrl-l': 'focus-pane-or-panel:focus-on-right'
+
+'.platform-darwin .find-and-replace atom-text-editor':
+  'ctrl-j': 'focus-pane-or-panel:focus-below'
+
+'.platform-darwin .project-find atom-text-editor':
+  'ctrl-j': 'focus-pane-or-panel:focus-below'
+
+'atom-text-editor.vim-mode-plus.normal-mode':
+  '(': 'vim-mode-plus:move-to-previous-function'
+  ')': 'vim-mode-plus:move-to-next-function'
+  'B': 'vim-mode-plus:insert-at-start-of-smart-word'
+  'E': 'vim-mode-plus:insert-at-end-of-smart-word'
+
+  'space g o': 'open-on-github:file'
+  'space g b': 'open-on-github:blame'
+  'space g h': 'open-on-github:history'
+  'space g i': 'open-on-github:issues'
+  'space g c': 'open-on-github:copy-url'
+  'space g r': 'open-on-github:branch-compare'
+  'space g g': 'open-on-github:repository'
+
+  'space g n': 'git-diff:move-to-next-diff'
+  'space g p': 'git-diff:move-to-previous-diff'
+  'space g d': 'git-diff:toggle-diff-list'
+
+  'space c': 'user:toggle-show-invisible'
+  'space n': 'editor:toggle-line-numbers'
+  'space t i': 'user:toggle-show-invisible'
+  'space t I': 'editor:toggle-indent-guide'
+  'space t w': 'editor:toggle-soft-wrap'
+  'space t n': 'editor:toggle-line-numbers'
+
+  'space n l': 'narrow:lines-by-current-word'
+
+  'ctrl-h': 'focus-pane-or-panel:focus-on-left'
+  'ctrl-l': 'focus-pane-or-panel:focus-on-right'
+
+  'cmd-shift-up': 'theme-switch:prev'
+  'cmd-shift-down': 'theme-switch:next'
+
+  'H': 'pane:show-previous-item'
+  'L': 'pane:show-next-item'
+
+  'S': 'vim-mode-plus:surround-smart-word'
+  'S d': 'vim-mode-plus:delete-surround'
+  'S c': 'vim-mode-plus:change-surround'
+
+  'ctrl-w x': 'paner:swap-pane'
+  'ctrl-w l': 'paner:split-right'
+  'ctrl-w h': 'paner:split-left'
+  'ctrl-w K': 'paner:very-top'
+  'ctrl-w J': 'paner:very-bottom'
+  'ctrl-w H': 'paner:very-left'
+  'ctrl-w L': 'paner:very-right'
+
+  'cmd-o': 'narrow:symbols-by-current-word' # quick preview function
+  'cmd-l': 'narrow:scan-by-current-word'
+  'enter': 'narrow:search-by-current-word'
+  'shift-cmd-g': 'narrow:search-by-current-word'
+
+  'space f': 'narrow:fold'
+  'space o': 'narrow:symbols'
+  'space l': 'narrow:scan'
+  'space L': 'narrow:scan-by-current-word'
+
+# When workspace has narrow-editor
+'atom-workspace.has-narrow atom-text-editor.vim-mode-plus.normal-mode':
+  'cmd-f': 'narrow:focus' # focus to narrow-editor
+  'cmd-i': 'narrow:focus-prompt' # focus to prompt of narrow-editor
+  'ctrl-cmd-l': 'narrow:refresh' # manually refresh items
+  'backspace': 'narrow:close'
