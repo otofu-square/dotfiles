@@ -28,3 +28,12 @@ alias -g LR='`git branch -r | peco --prompt "GIT REMOTE BRANCH" | head -n 1 | se
 alias ghc='stack ghc --'
 alias ghci='stack ghci --'
 alias runhaskell='stack runhaskell --'
+
+#
+# Yarn
+#
+alias y='yarn'
+alias yi='yarn init'
+alias ya='yarn add'
+alias yr='yarn run'
+alias yu='yarn upgrade'
