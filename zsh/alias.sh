@@ -13,7 +13,16 @@ alias df='df -h'
 
 alias su='su -l'
 
+#
+# bundler
+#
 alias be='bundle exec'
+
+#
+# Docker
+#
+alias dk='docker'
+alias dkc='docker-compose'
 
 #
 # Git
