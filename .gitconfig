@@ -1,9 +1,9 @@
 [user]
-	name = otofu-square
-	email = [FILL_IN]
+  name = otofu-square
+  email = [FILL_IN]
 [core]
-	editor = vim
-	excludesfile = ~/.gitignore_global
+  editor = vim
+  excludesfile = ~/.gitignore_global
 [color]
   ui = auto
   status = auto
@@ -30,13 +30,13 @@
   ce = commit -v --amend
   st = status --branch --short
   si = status --ignored --short
-	stpeco = "!f () { git st | grep -v '##' | awk '{print $2}' | peco; };f"
-	vspec = "!f () { git st | grep 'spec' | awk '{print $2}' | peco | xargs vagrant ssh -- rspec; };f"
-	strubocop = "!f () { git stpeco | xargs rubocop -a; };f"
+  stpeco = "!f () { git st | grep -v '##' | awk '{print $2}' | peco; };f"
+  vspec = "!f () { git st | grep 'spec' | awk '{print $2}' | peco | xargs vagrant ssh -- rspec; };f"
+  strubocop = "!f () { git stpeco | xargs rubocop -a; };f"
   branches = branch -a
   remotes = remote -v
   tags = tag -l
-	ls = log --oneline --color -n 10
+  ls = log --oneline --color -n 10
   la = log --oneline --decorate --color -n 10
   ll = log --decorate --color -n 7
   lg = log --graph --all --decorate --abbrev-commit --branches --date=short --pretty=format:\"%C(red)%h%C(reset) %C(green)[%ad]%C(reset) %s %C(cyan)@%an%C(reset) %C(yellow)%d%C(reset)\"
@@ -50,7 +50,7 @@
   unignore = update-index --no-assume-unchanged
   ignored = !git ls-files -v | grep "^[a-z]"
   gen-ignore = !gi() { curl -L -s https://www.gitignore.io/api/$@ ;}; gi
-  addselect = "!f () { git st | sed -e \"/M  /d\" | awk '{print $2}' | sed -e '1d' | peco | xargs git add; };f"
+  adds = "!f () { git st | sed -e \"/M  /d\" | awk '{print $2}' | sed -e '1d' | peco | xargs git add; };f"
   see = !hub browse
   sepr = !hub browse -- pull/$(git symbolic-ref --short HEAD)
   pr = "!hub browse -- compare/$(git symbolic-ref --short HEAD)"
