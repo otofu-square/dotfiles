@@ -46,3 +46,8 @@ alias yi='yarn init'
 alias ya='yarn add'
 alias yr='yarn run'
 alias yu='yarn upgrade'
+
+#
+# Terraform
+#
+alias tf='terraform'
