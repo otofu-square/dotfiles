@@ -23,6 +23,7 @@ alias be='bundle exec'
 #
 alias dk='docker'
 alias dkc='docker-compose'
+alias wbrew='whalebrew'
 
 #
 # Git
