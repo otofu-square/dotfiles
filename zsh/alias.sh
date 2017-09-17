@@ -23,6 +23,7 @@ alias be='bundle exec'
 #
 alias dk='docker'
 alias dkc='docker-compose'
+alias wbrew='whalebrew'
 
 #
 # Git
@@ -46,3 +47,8 @@ alias yi='yarn init'
 alias ya='yarn add'
 alias yr='yarn run'
 alias yu='yarn upgrade'
+
+#
+# Terraform
+#
+alias tf='terraform'
