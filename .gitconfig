@@ -54,3 +54,5 @@
   see = !hub browse
   sepr = !hub browse -- pull/$(git symbolic-ref --short HEAD)
   pr = "!hub browse -- compare/$(git symbolic-ref --short HEAD)"
+[ghq]
+  root = ~/src
