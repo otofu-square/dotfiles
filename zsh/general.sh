@@ -65,5 +65,5 @@ zstyle ':completion:*:options' description 'yes'
 eval "$(direnv hook zsh)"
 eval "$(rbenv init -)"
 source $HOME/.cargo/env
-export GOPATH=$HOME
+export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
