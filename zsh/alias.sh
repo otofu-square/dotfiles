@@ -52,3 +52,8 @@ alias yu='yarn upgrade'
 # Terraform
 #
 alias tf='terraform'
+
+#
+# Haskell
+#
+alias hs='stack exec -- runghc'
