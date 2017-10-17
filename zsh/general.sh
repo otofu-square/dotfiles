@@ -67,3 +67,4 @@ eval "$(rbenv init -)"
 source $HOME/.cargo/env
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:$HOME/.local/bin
