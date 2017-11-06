@@ -57,3 +57,9 @@ alias tf='terraform'
 # Haskell
 #
 alias hs='stack exec -- runghc'
+
+
+#
+# Nuclide
+#
+alias nuclide='ATOM_HOME=~/.nuclide atom'
