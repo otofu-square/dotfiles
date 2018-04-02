@@ -36,8 +36,8 @@ setopt transient_rprompt
 #
 export EDITOR=vim
 export HISTFILE=~/.zsh_history
-export HISTSIZE=1000000
-export SAVEHIST=1000000
+export HISTSIZE=1000
+export SAVEHIST=1000
 export LANG=ja_JP.UTF-8
 
 #
