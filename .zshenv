@@ -7,4 +7,4 @@ export PATH=$PATH:/usr/local/opt/go/libexec/bin:$HOME/bin
 
 export TERM='xterm-256color'
 
-export POWERLEVEL9K_MODE='awesome-patched'
+export POWERLEVEL9K_MODE='nerdfont-complete'
