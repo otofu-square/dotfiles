@@ -10,12 +10,17 @@ function is_screen_or_tmux_running() { is_screen_running || is_tmux_runnning; }
 function shell_has_started_interactively() { [ ! -z "$PS1" ]; }
 function is_ssh_running() { [ ! -z "$SSH_CONECTION" ]; }
 
-function tmux_automatically_attach_session() {
+function tmux_automatically_attach_session()
+{
     if is_screen_or_tmux_running; then
         ! is_exists 'tmux' && return 1
 
         if is_tmux_runnning; then
-            echo "${fg_bold[red]}Tmux attached.${reset_color}"
+            echo "${fg_bold[red]} _____ __  __ _   ___  __ ${reset_color}"
+            echo "${fg_bold[red]}|_   _|  \/  | | | \ \/ / ${reset_color}"
+            echo "${fg_bold[red]}  | | | |\/| | | | |\  /  ${reset_color}"
+            echo "${fg_bold[red]}  | | | |  | | |_| |/  \  ${reset_color}"
+            echo "${fg_bold[red]}  |_| |_|  |_|\___//_/\_\ ${reset_color}"
         elif is_screen_running; then
             echo "This is on screen."
         fi
@@ -57,7 +62,6 @@ function tmux_automatically_attach_session() {
         fi
     fi
 }
-PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
 tmux_automatically_attach_session
 
 # --------------------------------------

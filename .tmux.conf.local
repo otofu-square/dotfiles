@@ -1,15 +1,7 @@
 # https://github.com/gpakosz/.tmux
-# (‑●‑●)> released under the WTFPL v2 license, by Gregory Pakosz (@gpakosz)
-
-
-# -- navigation ----------------------------------------------------------------
-
-# if you're running tmux within iTerm2
-#   - and tmux is 1.9 or 1.9a
-#   - and iTerm2 is configured to let option key act as +Esc
-#   - and iTerm2 is configured to send [1;9A -> [1;9D for option + arrow keys
-# then uncomment the following line to make Meta + arrow keys mapping work
-#set -ga terminal-overrides "*:kUP3=\e[1;9A,*:kDN3=\e[1;9B,*:kRIT3=\e[1;9C,*:kLFT3=\e[1;9D"
+# (‑●‑●)> dual licensed under the WTFPL v2 license and the MIT license,
+#         without any warranty.
+#         Copyright 2012— Gregory Pakosz (@gpakosz).
 
 
 # -- windows & pane creation ---------------------------------------------------
@@ -37,7 +29,7 @@ tmux_conf_new_session_prompt=false
 
 # -- display -------------------------------------------------------------------
 
-# RGB 24-bit colour support (since tmux 2.2), possible values are:
+# RGB 24-bit colour support (tmux >= 2.2), possible values are:
 #  - true
 #  - false (default)
 tmux_conf_theme_24b_colour=true
@@ -46,14 +38,14 @@ tmux_conf_theme_24b_colour=true
 tmux_conf_theme_window_fg='default'
 tmux_conf_theme_window_bg='default'
 
-# highlight focused pane (tmux 2.1+), possible values are:
+# highlight focused pane (tmux >= 2.1), possible values are:
 #   - true
 #   - false (default)
 tmux_conf_theme_highlight_focused_pane=false
 
 # focused pane colours:
 tmux_conf_theme_focused_pane_fg='default'
-tmux_conf_theme_focused_pane_bg='#000000'               # light blue
+tmux_conf_theme_focused_pane_bg='#000000'
 
 # pane border style, possible values are:
 #   - thin (default)
@@ -228,33 +220,34 @@ tmux_conf_battery_status_discharging='🔋'  # U+1F50B
 tmux_conf_theme_clock_colour='#32ae85'  # light blue
 tmux_conf_theme_clock_style='24'
 
+# -- clipboard -----------------------------------------------------------------
+# in copy mode, copying selection also copies to the OS clipboard
+#   - true
+#   - false (default)
+# on macOS, this requires installing reattach-to-user-namespace, see README.md
+# on Linux, this requires xsel or xclip
+tmux_conf_copy_to_os_clipboard=true
 
-# ------------------------------------------------------------------------------
+# -- user customizations -------------------------------------------------------
 # this is the place to override or undo settings
 
 # increase history size
 set -g history-limit 10000
+
+# start with mouse mode enabled
+set -g mouse on
 
 # force Vi mode
 #   really you should export VISUAL or EDITOR environment variable, see manual
 #set -g status-keys vi
 set -g mode-keys vi
 
+# replace C-b by C-a instead of using both prefixes
+# set -gu prefix2
+unbind C-a
+unbind C-b
+set -g prefix C-s
+bind C-s send-prefix
+
 # move status line to top
 set -g status-position top
-
-# set mouse mode
-set-option -g mouse on
-
-# set prefix
-set -g prefix C-s
-
-# unbind-key
-unbind C-f
-unbind C-b
-
-# bind-key
-bind -n WheelUpPane if-shell -F -t = "#{mouse_any_flag}" "send-keys -M" "if -Ft= '#{pane_in_mode}' 'send-keys -M' 'select-pane -t=; copy-mode -e; send-keys -M'"
-bind -n WheelDownPane select-pane -t= \; send-keys -M
-bind -n C-v copy-mode
-bind-key -T copy-mode-vi Enter send -X copy-pipe-and-cancel "reattach-to-user-namespace pbcopy"
