@@ -56,4 +56,3 @@
   pr = "!hub browse -- compare/$(git symbolic-ref --short HEAD)"
 [ghq]
   root = ~/ghq
-  root = ~/go/src

@@ -1,7 +1,10 @@
+# Fig pre block. Keep at the top of this file.
+[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
+
 #
 # zplug
 #
-export ZPLUG_HOME=/usr/local/opt/zplug
+export ZPLUG_HOME=$(brew --prefix)/opt/zplug
 source $ZPLUG_HOME/init.zsh
 
 zplug 'otofu-square/dotfiles', use:'zsh/*.sh', as:plugin
@@ -12,7 +15,7 @@ zplug 'zsh-users/zsh-syntax-highlighting', defer:2
 zplug 'zsh-users/zsh-history-substring-search'
 zplug 'mollifier/anyframe'
 
-zplug 'bhilburn/powerlevel9k', use:powerlevel9k.zsh-theme, defer:2
+zplug romkatv/powerlevel10k, as:theme, depth:1
 
 if ! zplug check --verbose; then
   printf 'Install? [y/N]: '
@@ -22,3 +25,6 @@ if ! zplug check --verbose; then
 fi
 
 zplug load
+
+# Fig post block. Keep at the bottom of this file.
+[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"

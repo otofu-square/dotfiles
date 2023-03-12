@@ -2,7 +2,6 @@
 .idea
 
 # env
-
 .env*
 !.env.skeleton*
 !.env.template*
