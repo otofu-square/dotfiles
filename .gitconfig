@@ -28,6 +28,7 @@
   delete-merged-branch = "!f () { git checkout $1; git branch --merged|egrep -v '\\*|develop|master'|xargs git branch -d; };f"
   dif = diff
   ce = commit -v --amend
+  sw = switch
   st = status --branch --short
   si = status --ignored --short
   stpeco = "!f () { git st | grep -v '##' | awk '{print $2}' | peco; };f"
