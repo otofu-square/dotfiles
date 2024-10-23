@@ -1,6 +1,3 @@
-# Fig pre block. Keep at the top of this file.
-[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
-
 #
 # zplug
 #
@@ -13,7 +10,7 @@ zplug 'zsh-users/zsh-autosuggestions'
 zplug 'zsh-users/zsh-completions'
 zplug 'zsh-users/zsh-syntax-highlighting', defer:2
 zplug 'zsh-users/zsh-history-substring-search'
-zplug 'g-plane/pnpm-shell-completion', hook-build:'./zplug.zsh', defer:2
+zplug "g-plane/pnpm-shell-completion", hook-build:"./zplug.zsh", defer:2
 zplug 'mollifier/anyframe'
 
 zplug romkatv/powerlevel10k, as:theme, depth:1
@@ -26,6 +23,3 @@ if ! zplug check --verbose; then
 fi
 
 zplug load
-
-# Fig post block. Keep at the bottom of this file.
-[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
